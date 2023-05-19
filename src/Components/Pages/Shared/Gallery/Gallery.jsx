@@ -13,22 +13,22 @@ const Gallery = () => {
         <h1 className="text-center text-4xl font-bold my-6">Some <span className="text-orange-500">Collections</span> of Our</h1>
         <div className="grid grid-cols-2 md:grid-cols-3  gap-3">
       <div>
-        <img class="rounded-lg shadow-xl" src={img1} alt="" />
+        <img className="rounded-lg shadow-xl" src={img1} alt="" />
       </div>
       <div>
-        <img class="rounded-lg shadow-xl" src={img3} alt="" />
+        <img className="rounded-lg shadow-xl" src={img3} alt="" />
       </div>
       <div>
-        <img class="rounded-lg shadow-xl" src={img4} alt="" />
+        <img className="rounded-lg shadow-xl" src={img4} alt="" />
       </div>
       <div>
-        <img class="rounded-lg shadow-xl" src={img5} alt="" />
+        <img className="rounded-lg shadow-xl" src={img5} alt="" />
       </div>
       <div>
-        <img class="rounded-lg shadow-xl" src={img2} alt="" />
+        <img className="rounded-lg shadow-xl" src={img2} alt="" />
       </div>
       <div>
-        <img class="rounded-lg shadow-xl" src={img6} alt="" />
+        <img className="rounded-lg shadow-xl" src={img6} alt="" />
       </div>
     </div>
     </div>

@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 
+
 const Register = () => {
-    const [error, setError] = useState('');
     const {createUser}= useContext(AuthContext);
+    
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
@@ -13,10 +14,6 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
         console.log(name,email,password,photo);
-        setError('');
-        if(password.length<8){
-            setError('Password length must be 8 characters long')
-        }
         createUser(email,password)
         .then(result=>{
             const registeredUser = result.user;
@@ -25,6 +22,7 @@ const Register = () => {
         .catch(error=>{
             console.log(error.message);
         })
+        
     }
   return (
     
@@ -74,7 +72,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="Photo url"
-              name="password"
+              name="photo"
               className="input input-bordered"
             />
             

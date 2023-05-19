@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { FaBeer,FaGoogle  } from 'react-icons/fa';
+import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../../Providers/AuthProviders";
+
 const Login = () => {
-    const {signInUser,signInWithGoogle} = useContext(AuthContext);
-    const navigate = useNavigate();
+
+    const googleProvider = new GoogleAuthProvider();
+    
+   const {signInUser,signInWithGoogle} = useContext(AuthContext);
+
+   const navigate = useNavigate();
    const location = useLocation();
    const from = location.state?.from?.pathname || '/';
 
    const [error,setError] = useState('');
+
    const handleSignIn = event =>{
     event.preventDefault();
     const form = event.target;
@@ -26,27 +33,28 @@ const Login = () => {
       console.log(error);
       setError('Email or password did not match')
     })
-    
+
    }
    const handleGoogle = () =>{
-        signInWithGoogle(googleProvider)
-        .then((result) => {
-            const user = result.user;
-            // setUser(user);
-            console.log(user);
-            navigate(from, {replace:true})
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage);
-          });
-   }
+    signInWithGoogle(googleProvider)
+    .then((result) => {
+        const user = result.user;
+        // setUser(user);
+        console.log(user);
+        navigate(from, {replace:true})
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+}
+
   return (
     
         <div className="card w-full md:w-1/3 md:mx-auto shadow-2xl bg-base-100 my-7 text-center ">
           <div className="card-body">
           <h1 className="text-5xl font-bold">Login now!</h1>
-            <form onSubmit={handleSignIn} >
+            <form onSubmit={handleSignIn}>
                 <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
