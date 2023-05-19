@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../../../assets/rsz_1logo.png';
 
@@ -54,7 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img src={logo} alt="Otaku Let" />
+          <img className="rounded-lg" src={logo} alt="Otaku Let" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
