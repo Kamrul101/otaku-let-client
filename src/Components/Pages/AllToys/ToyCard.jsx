@@ -14,16 +14,7 @@ const ToyCard = ({ toy }) => {
     subCategory,
     details,
   } = toy;
-//   const handleSingleToy = (id) =>{
-    
-//         fetch(`http://localhost:5000/toys/${id}`)
-//         .then(res => res.json())
-//         .then(data=>{
-//             console.log(data);
-//         }
-            
-//         )
-//   }
+
   return (
     <tr>
       <th>
