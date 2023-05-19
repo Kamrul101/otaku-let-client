@@ -14,16 +14,16 @@ const ToyCard = ({ toy }) => {
     subCategory,
     details,
   } = toy;
-  const handleSingleToy = (id) =>{
+//   const handleSingleToy = (id) =>{
     
-        fetch(`http://localhost:5000/toys/${id}`)
-        .then(res => res.json())
-        .then(data=>{
-            console.log(data);
-        }
+//         fetch(`http://localhost:5000/toys/${id}`)
+//         .then(res => res.json())
+//         .then(data=>{
+//             console.log(data);
+//         }
             
-        )
-  }
+//         )
+//   }
   return (
     <tr>
       <th>
@@ -71,7 +71,9 @@ const ToyCard = ({ toy }) => {
       <td>{'$'+price}</td>
       <td>{quantity}</td>
       <th>
-        <button onClick={()=>handleSingleToy(_id)} className="btn btn-info text-white"><Link to='/singleToyDetail'>Details</Link></button>
+        <button className="btn btn-info text-white">
+            <Link to={`/singleToyDetail/${_id}`}>Details</Link>
+        </button>
       </th>
     </tr>
   );
