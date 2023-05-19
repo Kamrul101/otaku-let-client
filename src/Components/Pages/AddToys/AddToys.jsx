@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
 
@@ -7,14 +8,15 @@ const AddToys = () => {
         const form = event.target;
         const photo = form.photo.value;
         const name = form.name.value;
-        const quantity = form.name.value;
+        const quantity = form.quantity.value;
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const subCategory = form.subCategory.value;
         const details = form.details.value;
-        const user = {photo,
+        const newToy = {
+            photo,
             name,
             quantity,
             sellerName,
@@ -24,7 +26,26 @@ const AddToys = () => {
             subCategory,
             details,
         }
-        console.log(user);
+        console.log(newToy);
+        fetch('http://localhost:5000/toys',{
+          method: "POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(newToy)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data);
+          if(data.insertedId){
+            Swal.fire({
+              title: 'Success',
+              text: 'Action figure added successfully',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            })
+          }
+        })
     }
     return (
         <div className="bg-[#e7e5e4] p-5 rounded-lg w-3/4 mx-auto mb-5">
