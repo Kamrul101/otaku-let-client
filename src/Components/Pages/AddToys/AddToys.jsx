@@ -9,7 +9,7 @@ const AddToys = () => {
     const name = form.name.value;
     const quantity = form.quantity.value;
     const sellerName = form.sellerName.value;
-    const sellerEmail = form.sellerEmail.value;
+    const email = form.email.value;
     const price = form.price.value;
     const rating = form.rating.value;
     const subCategory = form.subCategory.value;
@@ -19,7 +19,7 @@ const AddToys = () => {
       name,
       quantity,
       sellerName,
-      sellerEmail,
+      email,
       price,
       rating,
       subCategory,
@@ -123,7 +123,7 @@ const AddToys = () => {
                 type="email"
                 placeholder="e.g you@email.com"
                 className="input input-bordered w-full"
-                name="sellerEmail"
+                name="email"
               />
             </label>
           </div>

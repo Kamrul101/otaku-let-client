@@ -13,7 +13,7 @@ const SingleToyDetail = ({ params }) => {
     name,
     quantity,
     sellerName,
-    sellerEmail,
+    email,
     price,
     rating,
     subCategory,
@@ -33,7 +33,7 @@ const SingleToyDetail = ({ params }) => {
           </h1>{" "}
           <br />
           <h1 className="text-xl md:text-3xl font-semibold text-gray-500">
-            Seller Email: <span className="text-gray-950">{sellerEmail}</span>
+            Seller Email: <span className="text-gray-950">{email}</span>
           </h1>{" "}
           <br />
           <h1 className="text-xl md:text-3xl font-semibold text-gray-500">

@@ -8,7 +8,7 @@ const ToyCard = ({ toy }) => {
     name,
     quantity,
     sellerName,
-    sellerEmail,
+    email,
     price,
     rating,
     subCategory,
