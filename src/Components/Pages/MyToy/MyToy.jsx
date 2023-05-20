@@ -17,6 +17,24 @@ const MyToy = () => {
       });
     }, [url]);
     console.log(addedToy);
+
+    const handleDelete = (id) => {
+      const proceed = confirm("Are You sure you want to delete");
+      if (proceed) {
+        fetch(`http://localhost:5000/toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              alert("deleted successful");
+              const remaining = addedToy.filter((newToy) => newToy._id !== id);
+              setAddedToy(remaining)
+            }
+          });
+      }
+    };
   return (
     <div>
       <div className="overflow-x-auto md:w-3/4 mx-auto">
@@ -43,6 +61,7 @@ const MyToy = () => {
               addedToy.map(userToy => <MyToyCard
               key={userToy._id}
               userToy={userToy}
+              handleDelete={handleDelete}
               ></MyToyCard>)
             }
           </tbody>

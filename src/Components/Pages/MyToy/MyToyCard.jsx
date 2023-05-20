@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MyToyCard = ({userToy}) => {
+const MyToyCard = ({userToy, handleDelete}) => {
 
   const {
     _id,
@@ -19,7 +19,7 @@ const MyToyCard = ({userToy}) => {
     <tr>
       <th>
         <label>
-          <button className="btn btn-circle btn-outline">
+          <button onClick={()=> handleDelete(_id)} className="btn btn-circle btn-outline">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
