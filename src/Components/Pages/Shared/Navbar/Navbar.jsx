@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from '../../../../assets/rsz_1logo.png';
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProviders";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -73,6 +74,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {
+            user && <FaUserCircle className="text-4xl mr-2"></FaUserCircle>
+        }
         {
             user? <Link onClick={handleLogOut} className="btn btn-error text-white" to='/login'>Logout</Link>:<Link className="btn btn-error text-white" to='/login'>Login</Link>
         }

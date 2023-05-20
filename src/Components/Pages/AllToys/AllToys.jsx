@@ -9,7 +9,6 @@ const AllToys = () => {
         <div>
             <div className="overflow-x-auto md:w-3/4 mx-auto">
   <table className="table w-full">
-    {/* head */}
     <thead>
       <tr>
         <th>

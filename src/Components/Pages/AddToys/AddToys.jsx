@@ -1,58 +1,59 @@
-import React from 'react';
-import Swal from 'sweetalert2';
+import React from "react";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
-
-    const handleAddFigure = (event) =>{
-        event.preventDefault();
-        const form = event.target;
-        const photo = form.photo.value;
-        const name = form.name.value;
-        const quantity = form.quantity.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const subCategory = form.subCategory.value;
-        const details = form.details.value;
-        const newToy = {
-            photo,
-            name,
-            quantity,
-            sellerName,
-            sellerEmail,
-            price,
-            rating,
-            subCategory,
-            details,
+  const handleAddFigure = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    const quantity = form.quantity.value;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.sellerEmail.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const subCategory = form.subCategory.value;
+    const details = form.details.value;
+    const newToy = {
+      photo,
+      name,
+      quantity,
+      sellerName,
+      sellerEmail,
+      price,
+      rating,
+      subCategory,
+      details,
+    };
+    console.log(newToy);
+    fetch("http://localhost:5000/toys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Action figure added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         }
-        console.log(newToy);
-        fetch('http://localhost:5000/toys',{
-          method: "POST",
-          headers:{
-            'content-type':'application/json'
-          },
-          body:JSON.stringify(newToy)
-        })
-        .then(res => res.json())
-        .then(data =>{
-          console.log(data);
-          if(data.insertedId){
-            Swal.fire({
-              title: 'Success',
-              text: 'Action figure added successfully',
-              icon: 'success',
-              confirmButtonText: 'Cool'
-            })
-          }
-        })
-    }
-    return (
-        <div className="bg-[#e7e5e4] p-5 rounded-lg w-3/4 mx-auto mb-5">
-      <h2 className="text-4xl font-extrabold text-center py-4"><span className='text-orange-500'>ADD ACTION FIGURES</span></h2>
+      });
+  };
+  return (
+    <div className="bg-[#e7e5e4] p-5 rounded-lg w-3/4 mx-auto mb-5">
+      <h2 className="text-4xl font-extrabold text-center py-4">
+        <span className="text-orange-500">ADD ACTION FIGURES</span>
+      </h2>
       <form onSubmit={handleAddFigure}>
         <div className="mb-8">
-            {/* photo url */}
+          {/* photo url */}
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Photo Url of Toy </span>
@@ -185,10 +186,14 @@ const AddToys = () => {
             </label>
           </div>
         </div>
-        <input className="btn btn-block btn-error text-white text-xl" type="submit" value="ADD ACTION FIGURE" />
+        <input
+          className="btn btn-block btn-error text-white text-xl"
+          type="submit"
+          value="ADD ACTION FIGURE"
+        />
       </form>
     </div>
-    );
+  );
 };
 
 export default AddToys;
