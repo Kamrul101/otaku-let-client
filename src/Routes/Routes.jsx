@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToy from "../Components/Pages/MyToy/MyToy";
 import UpdateToy from "../Components/Pages/MyToy/UpdateToy";
 import Error from "../Components/Pages/Error/Error";
+import Blog from "../Components/Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         {
             path: 'register',
             element: <Register></Register>
+        },
+        {
+            path:'blogs',
+            element:<Blog></Blog>
         }
     ]
   },
