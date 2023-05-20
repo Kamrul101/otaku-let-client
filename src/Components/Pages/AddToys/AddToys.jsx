@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const AddToys = () => {
+  const {user} = useContext(AuthContext);
   const handleAddFigure = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -81,6 +83,7 @@ const AddToys = () => {
                 placeholder="Toy name"
                 className="input input-bordered w-full"
                 name="name"
+                
                 required
               />
             </label>
@@ -111,6 +114,7 @@ const AddToys = () => {
                 placeholder="Seller name"
                 className="input input-bordered w-full"
                 name="sellerName"
+                defaultValue={user?.displayName}
               />
             </label>
           </div>
@@ -124,6 +128,7 @@ const AddToys = () => {
                 placeholder="e.g you@email.com"
                 className="input input-bordered w-full"
                 name="email"
+                defaultValue={user?.email}
               />
             </label>
           </div>
