@@ -62,7 +62,7 @@ const MyToyCard = ({userToy, handleDelete}) => {
       <td>{quantity}</td>
       <th>
         <button className="btn btn-info text-white">
-          <Link to={`/singleToyDetail/${_id}`}>Details</Link>
+          <Link to={`/update/${_id}`}>Update</Link>
         </button>
       </th>
     </tr>
