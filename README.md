@@ -60,6 +60,6 @@ To deploy this project run
   nodemon index.js
 ```
 ## 🔗Live Website Link
-(https://recipe-hunter-client.web.app/)
+(https://toy-store-3764d.web.app/)
 
 
