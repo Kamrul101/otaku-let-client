@@ -21,11 +21,11 @@ To deploy this project run
 
 - Clone the client repository
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Kamrul101/otaku-let-client
 ```
 - Clone the server repository
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Kamrul101/otaku-let-server
 ```
 
 - Go to the client project directory

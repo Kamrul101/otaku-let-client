@@ -30,9 +30,10 @@ const ShopByCategory = () => {
         Shop By <span className="text-orange-500">Category</span>
       </h1>
       <div className="flex justify-around">
-        <button
+        <button 
           onClick={() => filterItem("One Piece")}
           className="btn md:text-2xl btn-error text-white"
+          
         >
           One Piece
         </button>

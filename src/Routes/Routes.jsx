@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         {
             path:'/allToys',
             element:<AllToys></AllToys>,
-            loader:()=> fetch('https://toy-store-server-pi.vercel.app/toys')
+            // loader:()=> fetch(`https://toy-store-server-pi.vercel.app/toys?search=${search}`)
         },
         {
             path:'/singleToyDetail/:id',

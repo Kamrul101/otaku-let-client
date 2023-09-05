@@ -12,7 +12,8 @@ const AddToys = () => {
     const quantity = form.quantity.value;
     const sellerName = form.sellerName.value;
     const email = form.email.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
+
     const rating = form.rating.value;
     const subCategory = form.subCategory.value;
     const details = form.details.value;
@@ -141,7 +142,7 @@ const AddToys = () => {
             </label>
             <label className="input-group">
               <input
-                type="text"
+                type="number"
                 placeholder="$price"
                 className="input input-bordered w-full"
                 name="price"
